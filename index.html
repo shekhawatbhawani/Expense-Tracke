@@ -20,16 +20,20 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1>Expense Tracker</h1>
+    <h1 class="nav"> <span>Expense Tracker</span> <input type="text" class="search-input"></h1>
+
+    <div class="searchData">
+      
+    </div>
     <div class="container">
       <form action="">
         <div class="name">
           <label for="name">Enter Name of Expense</label>
-          <input type="text" placeholder="Enter name" id="name" />
+          <input class="input" type="text" placeholder="Enter name" id="name" />
         </div>
         <div class="cost">
           <label for="cost">Enter Cost of Expense</label>
-          <input type="text" placeholder="Enter Cost" id="cost" />
+          <input class="input" type="text" placeholder="Enter Cost" id="cost" />
         </div>
         <button type="submit" class="get-btn">Add</button>
       </form>

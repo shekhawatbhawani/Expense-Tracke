@@ -2,6 +2,8 @@ let submit = document.querySelector(".get-btn");
 let tBody = document.querySelector(".tbody");
 let total = document.querySelector("#total");
 let tFoot = document.querySelector("tfoot tr");
+let input = document.querySelector(".search-input")
+
 let totalCost = 0;
 
 submit.addEventListener("click", (e) => {
@@ -15,7 +17,7 @@ submit.addEventListener("click", (e) => {
     tFoot.style.visibility = "visible";
     let row = document.createElement("tr");
     row.innerHTML = `
-            <td>${name.value}</td>
+            <td class="data">${name.value}</td>
             <td>${cost.value}</td>
             `;
     tBody.appendChild(row);
@@ -25,3 +27,38 @@ submit.addEventListener("click", (e) => {
     cost.value = "";
   }
 });
+input.addEventListener("input",()=>{
+  let data = document.querySelectorAll(".data")
+  let container = document.querySelector(".searchDate")
+  let arr = Array.from(data)
+  let ans = arr.filter((element)=>{
+     if (element.textContent.includes(input.value)) {
+        console.log(element.parentNode);
+        let name = element.textContent
+        let cost = element.nextElementSibling.textContent
+        console.log(name);
+        console.log(cost);
+        
+        let table = document.createElement("table")
+        table.innerHTML=`
+          
+        <tr>
+          <th>Name</th>
+          <th>Cost</th>
+        </tr>
+        <tbody class="tbody">
+          <tr>
+          <td>${name}</td>
+          <td>${cost}</td>
+        </tr>
+        </tbody>
+         
+        `
+       return table
+        
+     }
+  })
+  container.append(ans)
+  console.log(input.value);
+  
+})
